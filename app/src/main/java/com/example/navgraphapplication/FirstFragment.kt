@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 
-class MainFragment : Fragment() {
+class FirstFragment : Fragment() {
 
     private val navController: NavController by lazy {
         findNavController()
@@ -20,17 +20,13 @@ class MainFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_main, container, false)
+        return inflater.inflate(R.layout.fragment_first, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         view.findViewById<Button>(R.id.button1).setOnClickListener {
-            navController.navigate(Uri.parse("https://www.example.com/first/"))
-        }
-
-        view.findViewById<Button>(R.id.button2).setOnClickListener {
             navController.navigate(Uri.parse("https://www.example.com/second/"))
         }
     }
