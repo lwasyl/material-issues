@@ -15,8 +15,8 @@
         <action
             android:id="@+id/first_to_second_fragment"
             app:destination="@id/nav_graph_second" />
-    </fragment>
 
-    <deepLink app:uri="https://www.example.com/first/" />
+        <deepLink app:uri="https://www.example.com/first/" />
+    </fragment>
 
 </navigation>
