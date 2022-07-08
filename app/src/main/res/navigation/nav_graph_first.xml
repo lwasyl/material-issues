@@ -10,7 +10,12 @@
     <fragment
         android:id="@+id/firstFragment"
         android:name="com.example.navgraphapplication.FirstFragment"
-        tools:layout="@layout/fragment_first" />
+        tools:layout="@layout/fragment_first">
+
+        <action
+            android:id="@+id/first_to_second_fragment"
+            app:destination="@id/nav_graph_second" />
+    </fragment>
 
     <deepLink app:uri="https://www.example.com/first/" />
 

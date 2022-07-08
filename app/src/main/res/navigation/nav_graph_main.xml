@@ -11,6 +11,15 @@
     <fragment
         android:id="@+id/mainFragment"
         android:name="com.example.navgraphapplication.MainFragment"
-        tools:layout="@layout/fragment_main" />
+        tools:layout="@layout/fragment_main" >
+
+        <action
+            android:id="@+id/main_to_first_fragment"
+            app:destination="@id/nav_graph_first"/>
+
+        <action
+            android:id="@+id/main_to_second_fragment"
+            app:destination="@id/nav_graph_second"/>
+    </fragment>
 
 </navigation>
