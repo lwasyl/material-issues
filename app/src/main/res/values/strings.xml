@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">NavGraphApplication</string>
+    <string name="second_fragment_label">second fragment %d</string>
 </resources>
