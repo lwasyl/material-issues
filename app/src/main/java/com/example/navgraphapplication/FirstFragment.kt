@@ -6,9 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import androidx.core.view.isVisible
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updateLayoutParams
+import androidx.core.view.updatePadding
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
@@ -33,15 +35,23 @@ class FirstFragment : Fragment() {
             navController.navigate(Uri.parse("https://www.example.com/second/"))
         }
 
+        ViewCompat.setOnApplyWindowInsetsListener(view) { view, windowInsets ->
+            val insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars())
+
+            view.updateLayoutParams<ViewGroup.MarginLayoutParams> {
+                bottomMargin = insets.bottom
+            }
+
+            //view.updatePadding(bottom = insets.bottom)
+
+            WindowInsetsCompat.CONSUMED
+        }
+
         snackbarExample(view)
     }
 
     private fun snackbarExample(view: View) {
         showSnackbar(view.findViewById(R.id.container), view.findViewById(R.id.anchorButton))
-
-        viewLifecycleOwner.lifecycleScope.launchWhenCreated {
-            view.findViewById<Button>(R.id.anchorButton).isVisible = true
-        }
     }
 
     private fun showSnackbar(container: View, bottomAnchor: View) {
